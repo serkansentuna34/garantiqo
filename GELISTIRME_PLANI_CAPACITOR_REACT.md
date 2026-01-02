@@ -16,14 +16,14 @@
 ### **FAZ 1: Monorepo & Proje Yapısı Kurulumu** (2-3 Gün)
 
 #### 1.1 Monorepo Başlatma
-- [ ] Root klasörde Git repository
+- [x] Root klasörde Git repository
   ```bash
   git init
   git config user.name "Serkan Sentuna"
   git config user.email "serkan.sentuna@gmail.com"
   ```
 
-- [ ] Monorepo yapısı oluşturma:
+- [x] Monorepo yapısı oluşturma:
   ```
   garantiqo/
   ├── apps/
@@ -42,10 +42,10 @@
   ```
 
 #### 1.2 Package Manager Seçimi
-- [ ] **Önerilen:** pnpm workspace (hızlı + disk tasarrufu)
+- [x] **Seçilen:** npm workspaces (native Node.js desteği)
   - Alternatif: npm workspaces / yarn workspaces
 
-- [ ] Root `package.json`:
+- [x] Root `package.json`:
   ```json
   {
     "name": "garantiqo-monorepo",
@@ -66,8 +66,8 @@
   ```
 
 #### 1.3 Shared Package Kurulumu
-- [ ] `packages/shared/` oluşturma
-- [ ] `packages/shared/package.json`:
+- [x] `packages/shared/` oluşturma
+- [x] `packages/shared/package.json`:
   ```json
   {
     "name": "@garantiqo/shared",
@@ -77,7 +77,7 @@
   }
   ```
 
-- [ ] Ortak TypeScript types:
+- [x] Ortak TypeScript types:
   ```typescript
   // packages/shared/src/types/index.ts
   export interface User {

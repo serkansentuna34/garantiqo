@@ -1,0 +1,30 @@
+{
+  "name": "garantiqo-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Destekli Fatura, Abonelik ve Garanti Takibi - Monorepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "functions"
+  ],
+  "scripts": {
+    "dev:mobile": "npm --workspace=@garantiqo/mobile run dev",
+    "dev:admin": "npm --workspace=@garantiqo/admin run dev",
+    "build:mobile": "npm --workspace=@garantiqo/mobile run build",
+    "build:admin": "npm --workspace=@garantiqo/admin run build",
+    "deploy:functions": "cd functions && npm run deploy",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "keywords": [
+    "invoice",
+    "subscription",
+    "warranty",
+    "firebase",
+    "capacitor",
+    "react"
+  ],
+  "author": "Serkan Sentuna <serkan.sentuna@gmail.com>",
+  "license": "UNLICENSED"
+}
