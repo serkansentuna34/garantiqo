@@ -109,6 +109,7 @@
 ### **FAZ 2: Firebase Backend Kurulumu** (2-3 Gün)
 
 #### 2.1 Firebase Console Yapılandırması
+- [x] Firebase projesini aktifleştirme (garantiqo - 1076898156160)
 - [ ] Firebase Console'da iOS app ekleme
   - Bundle ID: `com.garantiqo.app`
   - `GoogleService-Info.plist` indirme
@@ -121,8 +122,8 @@
   - Web config (`firebaseConfig`) kopyalama
 
 #### 2.2 Firestore Database
-- [ ] Firestore database oluşturma (Production mode)
-- [ ] Security Rules uygulama (`firestore.rules`):
+- [x] Firestore database oluşturma (Production mode)
+- [x] Security Rules uygulama (`firestore.rules`):
   ```javascript
   rules_version = '2';
   service cloud.firestore {
@@ -142,7 +143,7 @@
   }
   ```
 
-- [ ] Composite Index'ler (`firestore.indexes.json`):
+- [x] Composite Index'ler (`firestore.indexes.json`):
   ```json
   {
     "indexes": [
@@ -175,8 +176,8 @@
   ```
 
 #### 2.3 Firebase Storage
-- [ ] Storage bucket oluşturma
-- [ ] Storage Rules (`storage.rules`):
+- [x] Storage bucket oluşturma
+- [x] Storage Rules (`storage.rules`):
   ```javascript
   rules_version = '2';
   service firebase.storage {
@@ -213,7 +214,7 @@
   ```
 
 #### 2.7 Firebase Deploy
-- [ ] `firebase.json` yapılandırması:
+- [x] `firebase.json` yapılandırması:
   ```json
   {
     "firestore": {
@@ -230,11 +231,9 @@
   }
   ```
 
-- [ ] Deploy:
+- [x] Deploy:
   ```bash
-  firebase deploy --only firestore:rules
-  firebase deploy --only firestore:indexes
-  firebase deploy --only storage
+  firebase deploy --only firestore:rules,firestore:indexes,storage
   ```
 
 ---

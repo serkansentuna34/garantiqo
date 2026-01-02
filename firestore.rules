@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // User data - only accessible by the user themselves
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      // User subcollections (invoices, subscriptions, products, jobs)
+      match /{subcollection=**} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // Admin collections - client access denied (Admin SDK only)
+    match /adminUsers/{uid} {
+      allow read, write: if false;
+    }
+
+    match /auditLogs/{id} {
+      allow read, write: if false;
+    }
+
+    match /billingEvents/{id} {
+      allow read, write: if false;
+    }
+  }
+}
