@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13c8ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101f22",
+                        "surface-dark": "#192b2e",
+                        "surface-highlight": "#203438",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-x-hidden antialiased selection:bg-primary/30 selection:text-primary">
+<div class="relative flex h-full min-h-screen w-full flex-col pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 border-b border-transparent dark:border-white/5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative group cursor-pointer">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-transparent group-hover:ring-primary transition-all duration-300" data-alt="User profile avatar showing a smiling young man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASOVLdmXL-T7H6O-pGHHTEvjEHMId2oYTMSqrmX1unC-u1QAIpqF8q8kqi_UicT6R7XjpkPNLrG-2ssqM-MU8eIOxlfjYsEVYkWm374aLbrqA4dxuB6crEDEqJrYA1mC7VdFkuacemr5FW6DOHJRWxIT3OE6lmzaXiKsnVNCmBfk6R9DTHn1lW21u2drzi4LoX4S8dGp2Ma6QUtTQ3C8G9ry8fb_OGPoDEBtsa95IQ2jJF_RlmeatEkRf8W9xQAUqTsBK5G27WUvQ");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-green-500 border-2 border-background-light dark:border-background-dark rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Welcome back,</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Alex</h2>
+</div>
+</div>
+<button class="relative flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-700 dark:text-white" style="font-size: 24px;">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full ring-2 ring-background-dark"></span>
+</button>
+</div>
+</header>
+<!-- Stats & Budget Section -->
+<section class="p-4 flex flex-col gap-4">
+<!-- Monthly Summary Card -->
+<div class="relative overflow-hidden rounded-2xl bg-surface-dark p-6 shadow-sm border border-white/5">
+<!-- Decorative gradient blob -->
+<div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<p class="text-slate-400 text-sm font-medium">Total Spent this Month</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-white tracking-tight">$482.00</span>
+<span class="flex items-center text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined mr-0.5" style="font-size: 14px;">trending_up</span>
+                            12%
+                        </span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="relative z-10 mt-6 flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<span class="text-xs font-semibold text-slate-300">Monthly Budget</span>
+<span class="text-xs font-medium text-slate-400">65% used</span>
+</div>
+<div class="h-2 w-full rounded-full bg-black/40 overflow-hidden">
+<div class="h-full rounded-full bg-primary shadow-[0_0_10px_rgba(19,200,236,0.5)]" style="width: 65%;"></div>
+</div>
+<div class="flex justify-between text-[10px] text-slate-500 mt-1">
+<span>$0</span>
+<span>Goal: $750</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Chips (Categories) -->
+<section class="w-full overflow-x-auto hide-scrollbar pl-4 pb-2">
+<div class="flex gap-3 pr-4 min-w-max">
+<button class="flex h-9 items-center gap-2 rounded-full bg-primary text-background-dark px-4 font-bold text-sm shadow-lg shadow-primary/20 transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">dashboard</span>
+                    All
+                </button>
+<button class="flex h-9 items-center gap-2 rounded-full bg-surface-dark border border-white/5 px-4 text-sm font-medium text-slate-300 hover:bg-surface-highlight transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">receipt_long</span>
+                    Invoices (5)
+                </button>
+<button class="flex h-9 items-center gap-2 rounded-full bg-surface-dark border border-white/5 px-4 text-sm font-medium text-slate-300 hover:bg-surface-highlight transition-colors">
+<span class="material-symbols-outlined text-purple-400" style="font-size: 18px;">subscriptions</span>
+                    Subs (3)
+                </button>
+<button class="flex h-9 items-center gap-2 rounded-full bg-surface-dark border border-white/5 px-4 text-sm font-medium text-slate-300 hover:bg-surface-highlight transition-colors">
+<span class="material-symbols-outlined text-orange-400" style="font-size: 18px;">verified_user</span>
+                    Warranties (2)
+                </button>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="px-4 py-2">
+<div class="grid grid-cols-4 gap-3">
+<!-- AI Scan Action (Larger focus) -->
+<button class="col-span-2 flex flex-col justify-between h-28 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 p-4 relative overflow-hidden group">
+<div class="absolute right-0 top-0 p-3 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" style="font-size: 28px;">document_scanner</span>
+</div>
+<div class="flex flex-col items-start mt-auto">
+<span class="text-xs font-semibold text-primary uppercase tracking-wider mb-1">AI Scan</span>
+<span class="text-sm font-bold text-white leading-tight">Extract Data</span>
+</div>
+</button>
+<!-- Manual Add Actions -->
+<button class="col-span-1 flex flex-col items-center justify-center h-28 gap-2 rounded-2xl bg-surface-dark border border-white/5 hover:bg-surface-highlight transition-colors">
+<div class="size-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</div>
+<span class="text-[11px] font-medium text-slate-300 text-center">Sub</span>
+</button>
+<button class="col-span-1 flex flex-col items-center justify-center h-28 gap-2 rounded-2xl bg-surface-dark border border-white/5 hover:bg-surface-highlight transition-colors">
+<div class="size-10 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</div>
+<span class="text-[11px] font-medium text-slate-300 text-center">Warranty</span>
+</button>
+</div>
+</section>
+<!-- Upcoming Reminders -->
+<section class="flex flex-col mt-2">
+<div class="flex items-center justify-between px-4 py-3">
+<h3 class="text-lg font-bold text-white">Upcoming</h3>
+<button class="text-xs font-semibold text-primary hover:text-primary/80">View all</button>
+</div>
+<div class="flex flex-col gap-3 px-4">
+<!-- Item 1: Subscription -->
+<div class="group flex items-center gap-4 p-3 rounded-xl bg-surface-dark border border-white/5 hover:border-primary/30 transition-all">
+<div class="relative shrink-0 size-12 rounded-lg bg-black/40 p-2 flex items-center justify-center overflow-hidden">
+<!-- Abstract logo placeholder -->
+<div class="absolute inset-0 bg-green-500/20"></div>
+<span class="material-symbols-outlined relative z-10 text-green-400" style="font-size: 24px;">music_note</span>
+</div>
+<div class="flex flex-1 flex-col">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-white">Spotify Premium</h4>
+<span class="text-sm font-bold text-white">-$10.99</span>
+</div>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-400">Monthly Subscription</span>
+<span class="text-[10px] font-bold text-orange-400 bg-orange-400/10 px-2 py-0.5 rounded-full">Due in 2 days</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Warranty -->
+<div class="group flex items-center gap-4 p-3 rounded-xl bg-surface-dark border border-white/5 hover:border-primary/30 transition-all">
+<div class="relative shrink-0 size-12 rounded-lg bg-black/40 p-2 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-blue-500/20"></div>
+<span class="material-symbols-outlined relative z-10 text-blue-400" style="font-size: 24px;">laptop_mac</span>
+</div>
+<div class="flex flex-1 flex-col">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-white">Dell Monitor</h4>
+<span class="text-xs font-medium text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">Hardware</span>
+</div>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-400">Warranty Expiry</span>
+<span class="text-[10px] font-bold text-red-400 bg-red-400/10 px-2 py-0.5 rounded-full">Expires in 14d</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Invoice -->
+<div class="group flex items-center gap-4 p-3 rounded-xl bg-surface-dark border border-white/5 hover:border-primary/30 transition-all">
+<div class="relative shrink-0 size-12 rounded-lg bg-black/40 p-2 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-purple-500/20"></div>
+<span class="material-symbols-outlined relative z-10 text-purple-400" style="font-size: 24px;">description</span>
+</div>
+<div class="flex flex-1 flex-col">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-white">Adobe Creative Cloud</h4>
+<span class="text-sm font-bold text-white">-$54.99</span>
+</div>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-400">Invoice #2931</span>
+<span class="text-[10px] font-medium text-slate-500">Paid Oct 24</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Safe Area Spacer -->
+<div class="h-6"></div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-background-dark/80 backdrop-blur-xl border-t border-white/5 pb-safe z-50">
+<div class="flex justify-around items-center h-16 px-2">
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" style="font-size: 26px;">dashboard</span>
+<span class="text-[10px] font-semibold text-primary">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-slate-300 transition-colors" style="font-size: 26px;">folder_open</span>
+<span class="text-[10px] font-medium text-slate-500 group-hover:text-slate-300">Library</span>
+</button>
+<!-- Center Scan FAB Floating -->
+<div class="relative -top-5">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-background-dark shadow-[0_0_15px_rgba(19,200,236,0.4)] hover:shadow-[0_0_25px_rgba(19,200,236,0.6)] transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 28px;">center_focus_strong</span>
+</button>
+</div>
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-slate-300 transition-colors" style="font-size: 26px;">analytics</span>
+<span class="text-[10px] font-medium text-slate-500 group-hover:text-slate-300">Stats</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-slate-300 transition-colors" style="font-size: 26px;">settings</span>
+<span class="text-[10px] font-medium text-slate-500 group-hover:text-slate-300">Settings</span>
+</button>
+</div>
+<!-- iOS Home Indicator Safe Area -->
+<div class="h-5 w-full"></div>
+</nav>
+</body></html>

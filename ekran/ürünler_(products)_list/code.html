@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products List</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13c8ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101f22",
+                        "surface-dark": "#1a2c30",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary/30">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-xl overflow-hidden">
+<!-- Header -->
+<header class="sticky top-0 z-20 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-800/50">
+<h1 class="text-2xl font-extrabold leading-tight tracking-[-0.015em] flex-1 text-slate-900 dark:text-white">Ürünler</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-200 dark:bg-surface-dark text-slate-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Search & Filter Section -->
+<div class="px-4 py-3 space-y-4">
+<!-- Search Bar -->
+<label class="flex flex-col h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-gray-500 dark:text-gray-400 flex border-none bg-white dark:bg-surface-dark items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-white dark:bg-surface-dark focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-medium leading-normal transition-all" placeholder="Search products, brands..." value=""/>
+</div>
+</label>
+<!-- Chips -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-900 dark:bg-white pl-5 pr-5 shadow-sm transition-transform active:scale-95">
+<p class="text-white dark:text-background-dark text-sm font-bold leading-normal">All</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark pl-5 pr-5 border border-gray-200 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<p class="text-slate-700 dark:text-gray-300 text-sm font-semibold leading-normal">Warranties</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark pl-5 pr-5 border border-gray-200 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<p class="text-slate-700 dark:text-gray-300 text-sm font-semibold leading-normal">Subscriptions</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark pl-5 pr-5 border border-gray-200 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<p class="text-slate-700 dark:text-gray-300 text-sm font-semibold leading-normal">Expiring</p>
+</button>
+</div>
+</div>
+<!-- Product List -->
+<div class="flex-1 overflow-y-auto px-4 pb-24 space-y-3">
+<!-- List Item 1: Expiring Soon (Urgent) -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-surface-dark p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-all duration-200">
+<div class="shrink-0 relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400" data-alt="Macbook laptop icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBciDQqUxO3V_BVt9X8n5S55pkjBksF6Q1V5D-Toqbs7K9Whbz5uPHyXMrgt-DxZdLW7k-zsoGDvBGdMXb2e3KElTBHQVZvF0-V1H9-tVABg75_vipXwYRwupA049ySoFsO6bBxDUVgWztwUqApSvb1t-DlA8CYKjWXSKmhnOHAFwjjQ5PKbbF3D_MHNFXec7DFMS08W6Qv1Coskgm1-ILJd9d6bnAbScKX9JMAyRBaNmK1sbW18hGZi75l1VqAqb9KSTRRq_6qMYM");'>
+</div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight line-clamp-1">MacBook Pro M2</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium mt-1">Apple • Ends 12 Oct 2024</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center rounded-md bg-orange-50 dark:bg-orange-500/10 px-2 py-1 text-xs font-bold text-orange-600 dark:text-orange-400 ring-1 ring-inset ring-orange-500/20">
+                            12 Days Left
+                        </span>
+<span class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Warranty</span>
+</div>
+</div>
+<div class="absolute right-4 top-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+<!-- List Item 2: Good Health -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-surface-dark p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-all duration-200">
+<div class="shrink-0 relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 bg-gray-100 dark:bg-gray-800 flex items-center justify-center" data-alt="Playstation 5 console" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwFfUQPDn_oyhQ_B6tuGkGSZe1SeNyn_CkrCJY3FxYS36b4YN6ZI0_VUfEkjk48gIitT1W9-gpWwraf6TWqljaVfvkSn3nKYFCBx6CcDpZhnWL3bVBSpwupg_yYx5qdYarhZn37FHq16vcUxiX8Gmrz7cjC-kwGnT8x2L1mu3ZZ7VilBpPKK8mH_lC52Ti7tQYcKNH1hTkQrW2cYReoESY7tWpqw_08xJhaP_mrjBdDNZWjc5nwf7vHm11rTHTXhUJh5wJFA2Wt9U");'></div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight line-clamp-1">PlayStation 5</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium mt-1">Sony • Ends 15 Nov 2025</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-bold text-primary dark:text-primary ring-1 ring-inset ring-primary/30">
+                           420 Days Left
+                       </span>
+<span class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Warranty</span>
+</div>
+</div>
+<div class="absolute right-4 top-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+<!-- List Item 3: Expired (Red) -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-surface-dark p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 opacity-80 active:scale-[0.99] transition-all duration-200">
+<div class="shrink-0 relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 bg-gray-100 dark:bg-gray-800" data-alt="Coffee maker machine" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD8a5YrUCHiEwRNd1f852QiKZryCfAuHR6MKTQU6kTKxSwBaWmzZxG7J5FsxARtDacZSbWUHH_9ypkdwnuVAJ83RQ26EXxscR834C_Ib4Xeur3i4NW3m1vc9smUwxx2Go71Bgn4wHJTYJTPEplczwjdUqrxJWVh-tuQ9uwW73EA4HEKzmPgsibZsejKZ3MQlhx-BXbo-H19FPisGVPUN-sOtKBNfyBq2x-r7P2jseynoaDO2TJicp5qTXKbRE4aBKCXvctV61IfEvA");'></div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight line-clamp-1">Espresso Machine</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium mt-1">Nespresso • Expired 02 Feb 2024</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center rounded-md bg-red-50 dark:bg-red-500/10 px-2 py-1 text-xs font-bold text-red-600 dark:text-red-400 ring-1 ring-inset ring-red-500/20">
+                            Expired
+                        </span>
+<span class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Warranty</span>
+</div>
+</div>
+<div class="absolute right-4 top-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+<!-- List Item 4: Subscription -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-surface-dark p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-all duration-200">
+<div class="shrink-0 relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 bg-gray-100 dark:bg-gray-800 p-3" data-alt="Netflix logo abstract" style="background-image: linear-gradient(135deg, #000000 0%, #E50914 100%);">
+<div class="flex h-full w-full items-center justify-center text-white font-bold text-xl">N</div>
+</div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight line-clamp-1">Netflix Premium</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium mt-1">Monthly • Renews 24 Aug</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-500/10 px-2 py-1 text-xs font-bold text-blue-600 dark:text-blue-400 ring-1 ring-inset ring-blue-500/20">
+                            5 Days Left
+                        </span>
+<span class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Sub</span>
+</div>
+</div>
+<div class="absolute right-4 top-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+<!-- List Item 5: Another Item -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-surface-dark p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-all duration-200">
+<div class="shrink-0 relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 bg-gray-100 dark:bg-gray-800" data-alt="Headphones abstract" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnzdGyDL91xWPpPOpm20wLQWd4l1eNB8O6ss0PcaNqHNtlOV3qE_rzothgATT5hVLqGWgO6NlEd8vio085Wl-fHCTf3lsIRgiA3NsFhmHyb0k-cVEQOfKv4CuhF84H8XlHKVx67bhf5Wj_Ndjx_TJgPO7fbEzrrSK-c9GAYfUN3OvtUPJKNCp6HrVRIxRkhspPA08zUzBMAI7WgTYFNf50njTuVXhlk3_l9zwFOfQ9LZPJy0CpSCSC76OAv0JhQ7zrGE05jIK53U8");'></div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight line-clamp-1">Noise Cancelling Headphones</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium mt-1">Bose • Ends 10 Dec 2024</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-bold text-primary dark:text-primary ring-1 ring-inset ring-primary/30">
+                           85 Days Left
+                       </span>
+<span class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Warranty</span>
+</div>
+</div>
+<div class="absolute right-4 top-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+<!-- Bottom spacer to ensure last item is visible above FAB/Nav -->
+<div class="h-20"></div>
+</div>
+<!-- Floating Action Button -->
+<div class="absolute bottom-6 right-6 z-30">
+<button class="group flex items-center justify-center size-14 rounded-full bg-primary shadow-lg shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-white text-3xl group-hover:rotate-90 transition-transform duration-300">add</span>
+</button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="absolute bottom-0 w-full bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 pt-2 pb-6 px-6 flex justify-between items-center z-20">
+<button class="flex flex-col items-center gap-1 w-16 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 text-primary">
+<span class="material-symbols-outlined filled font-variation-settings-fill">inventory_2</span>
+<span class="text-[10px] font-bold">Products</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</nav>
+<!-- Gradients for subtle atmosphere -->
+<div class="pointer-events-none absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/5 to-transparent opacity-50 dark:opacity-20 z-0"></div>
+</div>
+<script>
+        // Simple fix for Material Symbols filled state simulation if font-variation-settings isn't fully supported by the specific font link
+        document.querySelectorAll('.material-symbols-outlined.filled').forEach(el => {
+            el.style.fontVariationSettings = "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+        });
+    </script>
+</body></html>

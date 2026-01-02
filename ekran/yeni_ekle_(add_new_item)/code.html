@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yeni Ekle - Add New Item</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13c8ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101f22",
+              "surface-dark": "#18282c", // Slightly lighter than background-dark for cards
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem", 
+                "lg": "0.5rem", 
+                "xl": "0.75rem", 
+                "2xl": "1rem",
+                "3xl": "1.5rem",
+                "full": "9999px"
+            },
+            boxShadow: {
+                'glow': '0 0 15px rgba(19, 200, 236, 0.3)',
+            }
+          },
+        },
+      }
+    </script>
+<!-- Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .material-symbols-filled {
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden h-screen w-full relative">
+<!-- Background App Simulation (Blurred Layer) -->
+<!-- This simulates the screen behind the modal -->
+<div class="absolute inset-0 z-0 flex flex-col p-6 opacity-40 blur-[2px] pointer-events-none select-none overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<div class="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+<div class="h-8 w-24 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+</div>
+<div class="h-48 w-full rounded-2xl bg-gray-200 dark:bg-gray-800 mb-6 relative overflow-hidden">
+<!-- Placeholder for Chart Image -->
+<div class="absolute inset-0 opacity-20 bg-gradient-to-tr from-primary to-purple-500"></div>
+</div>
+<div class="space-y-4">
+<div class="h-20 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-20 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-20 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-20 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+</div>
+</div>
+<!-- Backdrop Overlay -->
+<div class="absolute inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity"></div>
+<!-- Bottom Sheet Modal -->
+<div class="absolute inset-x-0 bottom-0 z-50 flex flex-col items-stretch justify-end">
+<!-- Sheet Container -->
+<div class="relative w-full rounded-t-[32px] bg-white dark:bg-background-dark shadow-2xl border-t border-white/10 overflow-hidden transform transition-transform duration-300 ease-out">
+<!-- Drag Handle Area -->
+<div class="flex w-full items-center justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing">
+<div class="h-1.5 w-12 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+</div>
+<!-- Header -->
+<div class="flex items-center justify-between px-6 pt-2 pb-6">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Yeni Ekle</h2>
+<!-- Close Button -->
+<button class="group flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-surface-dark hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white text-[20px]">close</span>
+</button>
+</div>
+<!-- Content: Action Cards -->
+<div class="flex flex-col gap-4 px-4 pb-10">
+<!-- Card 1: Invoice (AI Powered) -->
+<button class="group relative flex items-center justify-between gap-4 rounded-2xl bg-gray-50 dark:bg-surface-dark p-4 text-left transition-all active:scale-[0.98] border border-transparent hover:border-primary/30 dark:hover:border-primary/30 shadow-sm">
+<div class="flex items-center gap-4">
+<!-- Icon Box -->
+<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-[#283639] shadow-inner">
+<span class="material-symbols-outlined text-primary text-[28px]">receipt_long</span>
+</div>
+<!-- Text -->
+<div class="flex flex-col">
+<span class="text-lg font-bold text-gray-900 dark:text-white leading-tight">Fatura</span>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400 leading-normal">Fiş veya fatura taratın</span>
+</div>
+</div>
+<!-- Right Side: AI Badge & Arrow -->
+<div class="flex flex-col items-end gap-1">
+<!-- AI Badge -->
+<div class="flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 border border-primary/20">
+<span class="material-symbols-filled text-primary text-[10px] animate-pulse">auto_awesome</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">AI Scan</span>
+</div>
+</div>
+<!-- Hover Effect: subtle glow -->
+<div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 dark:ring-white/5 group-hover:ring-primary/50 transition-all"></div>
+</button>
+<!-- Card 2: Subscription -->
+<button class="group relative flex items-center justify-between gap-4 rounded-2xl bg-gray-50 dark:bg-surface-dark p-4 text-left transition-all active:scale-[0.98] border border-transparent hover:border-primary/30 dark:hover:border-primary/30 shadow-sm">
+<div class="flex items-center gap-4">
+<!-- Icon Box -->
+<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-[#283639] shadow-inner">
+<span class="material-symbols-outlined text-primary text-[28px]">autorenew</span>
+</div>
+<!-- Text -->
+<div class="flex flex-col">
+<span class="text-lg font-bold text-gray-900 dark:text-white leading-tight">Abonelik</span>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400 leading-normal">Netflix, Spotify vb.</span>
+</div>
+</div>
+<!-- Right Side: Arrow -->
+<div class="shrink-0 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+<div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 dark:ring-white/5 group-hover:ring-primary/50 transition-all"></div>
+</button>
+<!-- Card 3: Product & Warranty (AI Powered) -->
+<button class="group relative flex items-center justify-between gap-4 rounded-2xl bg-gray-50 dark:bg-surface-dark p-4 text-left transition-all active:scale-[0.98] border border-transparent hover:border-primary/30 dark:hover:border-primary/30 shadow-sm">
+<div class="flex items-center gap-4">
+<!-- Icon Box -->
+<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-[#283639] shadow-inner">
+<span class="material-symbols-outlined text-primary text-[28px]">verified_user</span>
+</div>
+<!-- Text -->
+<div class="flex flex-col">
+<span class="text-lg font-bold text-gray-900 dark:text-white leading-tight">Ürün &amp; Garanti</span>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400 leading-normal">Garanti belgesi ekleyin</span>
+</div>
+</div>
+<!-- Right Side: AI Badge & Arrow -->
+<div class="flex flex-col items-end gap-1">
+<!-- AI Badge (Optional here too as per plan implies maybe product scan) -->
+<div class="flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 border border-primary/20">
+<span class="material-symbols-filled text-primary text-[10px]">auto_awesome</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">AI Scan</span>
+</div>
+</div>
+<div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 dark:ring-white/5 group-hover:ring-primary/50 transition-all"></div>
+</button>
+</div>
+<!-- Bottom Spacer for Home Indicator on iOS -->
+<div class="h-6 w-full bg-transparent"></div>
+</div>
+</div>
+</body></html>

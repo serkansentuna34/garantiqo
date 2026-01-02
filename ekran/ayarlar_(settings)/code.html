@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayarlar - Settings UI</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13c8ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101f22",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#192528",
+                        "text-primary-dark": "#ffffff",
+                        "text-secondary-dark": "#9db4b9",
+                        "text-primary-light": "#111718",
+                        "text-secondary-light": "#637588",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #283639; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #13c8ec; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<div class="flex items-center px-4 py-4 justify-between bg-surface-light dark:bg-background-dark sticky top-0 z-10">
+<div class="text-text-primary-light dark:text-white flex size-12 shrink-0 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-[#1c2527] rounded-full justify-center transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-text-primary-light dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Ayarlar</h2>
+</div>
+<!-- Premium Banner -->
+<div class="p-4">
+<div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm border border-gray-200 dark:border-transparent">
+<div class="flex flex-[2_2_0px] flex-col gap-4 justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<p class="text-text-primary-light dark:text-white text-base font-bold leading-tight">Ücretsiz Plan</p>
+</div>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
+                            YZ içgörülerini ve sınırsız dışa aktarımı açın.
+                        </p>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary hover:bg-primary/90 transition-colors text-background-dark font-bold text-sm leading-normal shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined mr-2 text-[18px]">diamond</span>
+<span class="truncate">Pro'ya Yükselt</span>
+</button>
+</div>
+<!-- Image with data-alt -->
+<div class="w-full md:w-1/3 bg-center bg-no-repeat bg-cover rounded-lg min-h-[100px] md:min-h-auto relative overflow-hidden group" data-alt="Abstract blue and dark geometric shapes representing modern technology" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqVRC-nJ4zXdFYtQX2Ari4oU5-lEOk6UCWenZDBBpqXJ0AM09zX4FapAZEG-1-VhkdO9URxTtDn2BRM9FzLcOY6gnivX2GyoyHA-k5tGpTYUEmMNnpJuihc0XbLDt5UuLxC2VF1udnN3cvmHI5Myz5HksDHLpLXOxILGHDqev3sLNCrKqFox0JXZ2o_rz8aWC97UWaYHENh85AXZ3kae3VdLEkW5Ct_gMILuoBi2EEXXJVPGK47dtnpx083fRxgiyhGJpC8FJ3ceQ");'>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+</div>
+</div>
+</div>
+<!-- Section 1: Membership Actions -->
+<div class="flex flex-col gap-1 px-4">
+<!-- Restore Purchases -->
+<div class="flex items-center gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-xl cursor-pointer hover:bg-gray-50 dark:hover:bg-[#233033] transition-colors shadow-sm border border-gray-100 dark:border-transparent">
+<div class="text-text-primary-light dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-[#283639] shrink-0 size-10">
+<span class="material-symbols-outlined">restore</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-text-primary-light dark:text-white text-base font-medium leading-normal">Satın Alımları Geri Yükle</p>
+</div>
+<div class="shrink-0 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Privacy & AI -->
+<div class="pt-6 pb-2 px-6">
+<h3 class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-bold uppercase tracking-wider">Gizlilik ve YZ</h3>
+</div>
+<div class="flex flex-col gap-px bg-surface-light dark:bg-surface-dark mx-4 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-transparent">
+<!-- AI Toggle -->
+<div class="flex gap-4 p-4 justify-between items-center border-b border-gray-100 dark:border-[#283639] last:border-0">
+<div class="flex items-start gap-3">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10 mt-1">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-primary-light dark:text-white text-base font-medium leading-normal">YZ Analizine İzin Ver</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-xs font-normal leading-normal mt-0.5">Veri çıkartma doğruluğunu artırın. Veriler anonimleştirilir.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[28px] w-[48px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-[#283639] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-all duration-300">
+<div class="h-[24px] w-[24px] rounded-full bg-white shadow-sm" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Privacy Policy Link -->
+<div class="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-[#233033] cursor-pointer transition-colors">
+<div class="text-text-primary-light dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-[#283639] shrink-0 size-10">
+<span class="material-symbols-outlined">security</span>
+</div>
+<p class="text-text-primary-light dark:text-white text-base font-medium leading-normal flex-1 truncate">Gizlilik Politikası</p>
+<div class="shrink-0 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined">open_in_new</span>
+</div>
+</div>
+</div>
+<!-- Section 3: General -->
+<div class="pt-6 pb-2 px-6">
+<h3 class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-bold uppercase tracking-wider">Genel</h3>
+</div>
+<div class="flex flex-col gap-px bg-surface-light dark:bg-surface-dark mx-4 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-transparent">
+<!-- Language -->
+<div class="flex items-center gap-4 p-4 justify-between hover:bg-gray-50 dark:hover:bg-[#233033] cursor-pointer transition-colors border-b border-gray-100 dark:border-[#283639]">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-[#283639] shrink-0 size-10">
+<span class="material-symbols-outlined">language</span>
+</div>
+<p class="text-text-primary-light dark:text-white text-base font-medium leading-normal">Dil</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Türkçe</span>
+<span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark">chevron_right</span>
+</div>
+</div>
+<!-- Export Data (Premium Feature) -->
+<div class="flex items-center gap-4 p-4 justify-between hover:bg-gray-50 dark:hover:bg-[#233033] cursor-pointer transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-[#283639] shrink-0 size-10">
+<span class="material-symbols-outlined">file_upload</span>
+</div>
+<div class="flex flex-col">
+<p class="text-text-primary-light dark:text-white text-base font-medium leading-normal">Verileri Dışa Aktar</p>
+<p class="text-amber-500 text-xs font-bold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">lock</span> Premium
+                        </p>
+</div>
+</div>
+<div class="shrink-0 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 mb-8 flex flex-col items-center gap-6">
+<!-- Delete Account -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-red-500/10 transition-colors group">
+<span class="material-symbols-outlined text-red-500 group-hover:text-red-400 text-[20px]">delete</span>
+<span class="text-red-500 group-hover:text-red-400 font-medium text-sm">Hesabı Sil</span>
+</button>
+<!-- Version -->
+<p class="text-text-secondary-light dark:text-[#586e72] text-xs font-medium">Sürüm 1.0.4 (Build 240)</p>
+<div class="h-10"></div> <!-- Bottom spacer -->
+</div>
+</div>
+</body></html>
